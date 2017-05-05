@@ -1,76 +1,76 @@
-#Angular 1
+# Angular 1
 
 -----
 ### Why we need Client side frame works
-1.HTML - static
-2.javascript- dynamic
-3.**DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
-4.Messy codes,Harder to maintain , Harder to test, no separation of concerns
+1. HTML - static
+2. javascript- dynamic
+3. **DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
+4. Messy codes,Harder to maintain , Harder to test, no separation of concerns
 
-###Client side MVC frameworks
+### Client side MVC frameworks
 HTML(View) -- DATA(model)---LOGIC (controller)
 
-###Angular JS
+### Angular JS
 1. HTML Enhanced for webapps
-2.HTMLis great for declaring static documents. It falters when we try to use it for dynamic views in webapplications.
-3.AngularJS helps you extend HTML vocabulary for your application.The resulting environment is extraordinarily experssive,readable and quick to develop.
+2. HTMLis great for declaring static documents. It falters when we try to use it for dynamic views in webapplications.
+3. AngularJS helps you extend HTML vocabulary for your application.The resulting environment is extraordinarily experssive,readable and quick to develop.
 4. In JS we
-  1.we find element
-  2.run LOGIC
-  3.update element
-5.In AngularJS
+  1. we find element
+  2. run LOGIC
+  3. update element
+5. In AngularJS
   1. Declare element type
-  2.Define LOGIC
-  3.Use Element type
+  2. Define LOGIC
+  3. Use Element type
 
-6.Declarative program
-7.Custom elements  :: Directives and components
+6. Declarative program
+7. Custom elements  :: Directives and components
 
-###How angularjs works
+### How angularjs works
 
-1.Add the *angular.js* script to html
-2.create custom Directives
-3.Use those elemets in the HTML
-
-
-###ng-app
-1.way to declare **angular app** is add directive *ng-app* to HTML node or any other node. That node becomes the root for *angular* application
-2.Auto bootstrap an angularjs application
-3.Designate theroot element of the application4.
-4.Multiple apllications per page ok( need manual bootstrap)
+1. Add the *angular.js* script to html
+2. create custom Directives
+3. Use those elemets in the HTML
 
 
-###ng-if
+### ng-app
+1. way to declare **angular app** is add directive *ng-app* to HTML node or any other node. That node becomes the root for *angular* application
+2. Auto bootstrap an angularjs application
+3. Designate theroot element of the application4.
+4. Multiple apllications per page ok( need manual bootstrap)
 
-1.selectively remove or recreate a portion of DOM tree based on an expressionlements
+
+### ng-if
+
+1. selectively remove or recreate a portion of DOM tree based on an expressionlements
 2.*ng-if="true"* element is added.
 3.*ng-if="false"* element is removed.
 
 
-###ng-init
+### ng-init
 
-1.To initialize variables *ng-init = "hours=12"*
-2.Evaluate expressions
+1. To initialize variables *ng-init = "hours=12"*
+2. Evaluate expressions
 3. not much used. can be used in loops
 
 
-###scope
+### scope
 
-1.All directives talk to each other using the scope.
-2.An angular app has a global scope. Each controller has its own scope.
+1. All directives talk to each other using the scope.
+2. An angular app has a global scope. Each controller has its own scope.
 
-###ng-bind
-1.Allows you to add value of a variable to the mark up
+### ng-bind
+1. Allows you to add value of a variable to the mark up
 2. *<span ng-bind="userName"></span>* or *<span>{{userName}}</span>* *{{expressions}}*
-3.Expressions are evaluated against the scope
+3. Expressions are evaluated against the scope
 
-###angular.module
-1.Global plcae for creating ,retrieving and registering angular modules
-2.A module is a collection ofdirectives,controllers and other stuff
+### angular.module
+1. Global plcae for creating ,retrieving and registering angular modules
+2. A module is a collection ofdirectives,controllers and other stuff
 3. *var myModule = angular.module('MyModule',[]);*
-4.*angular* is a global variable availble with the angularjs
+4. *angular* is a global variable availble with the angularjs
 5. name we give while creating module *'MyModule'* should be same in *ng-app='MyModule'*
-6.**Registering a controller**
+6. **Registering a controller**
   1.Module is a collection of things like controllers
   2.A controller has to be registered with a module
   3.
