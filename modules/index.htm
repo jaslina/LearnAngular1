@@ -1,0 +1,16 @@
+<html ng-app="modulesApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular modules App</title>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="myHelloModule.js"></script>
+</head>
+<body>
+  <div ng-controller="HelloCtrl as ctrl">
+    <h1>Modules App</h1>
+    <p>{{ctrl.helloMessage}}</p>
+
+  </div>
+</body>
+</html>

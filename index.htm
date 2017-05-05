@@ -1,0 +1,25 @@
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Demo</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="MainCtrl">
+    <h1>Hello Angular!!! </h1>
+    <p ng-if="hourOfDay < 12">Good Morning</p>
+    <p ng-if="hourOfDay > 17">Good Evening</p>
+    <p ng-if="hourOfDay >= 12 && hourOfDay <= 17 ">Good Afternoon</p>
+    <p>the hour of day is : {{hourOfDay}}</p>
+  </div>
+  <script>
+   var module = angular.module("myApp",[]);
+   module.controller("MainCtrl",Main);
+
+   function Main($scope){
+     $scope.hourOfDay = 18;
+     alert("Main method called");
+   }
+  </script>
+</body>
+</html>

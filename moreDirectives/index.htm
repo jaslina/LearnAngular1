@@ -1,0 +1,19 @@
+<html ng-app="moreDirectivesApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular More Directives App</title>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div ng-controller="MoreDirectives as ctrl">
+    <h1>More Directives App</h1>
+    <p ng-repeat="i in ctrl.myList">Hello</p
+    <input type="checkbox" ng-model="ctrl.checked">
+    <p ng-show="ctrl.checked">Some content for ng-show</p><br>
+    <input type="checkbox" ng-model="ctrl.checked1">
+    <p ng-hide="ctrl.checked1">Some content for ng-hide</p>
+
+  </div>
+</body>
+</html>

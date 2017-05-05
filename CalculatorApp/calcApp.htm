@@ -1,0 +1,27 @@
+<html ng-app="calcApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Calculator App</title>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>Calculator App</h1>
+  <div ng-controller="CalcCtrl as calc">
+    <p>
+      <input type="text" onkeypress='return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57' ng-model="calc.input1"></input>
+      <span>{{calc.operation}}</span>
+      <input type="text" onkeypress='return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57'  ng-model="calc.input2"></input>
+      <button ng-click="calc.updateResult()">=</button>
+      <span>{{calc.result}}</span>
+    </p>
+    <p>
+      Choose Operation :
+      <button ng-click="calc.updateOpn('+')">+</button>
+      <button ng-click="calc.updateOpn('-')">-</button>
+      <button ng-click="calc.updateOpn('*')">*</button>
+      <button ng-click="calc.updateOpn('/')">/</button>
+    </p>
+  </div>
+</body>
+</html>

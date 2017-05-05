@@ -1,0 +1,38 @@
+<html ng-app="nestedControllerApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Nested controllers App</title>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>Nested Controller App</h1>
+  <!-- Controller inside a controller -->
+  <h3>Controller inside a controller</h3>
+  <div ng-controller="nestedCtrl3">
+    <p>{{testCode}}</p>
+    <div ng-controller="nestedCtrl4">
+      <p>{{testCode}}</p>
+    </div>
+  </div>
+
+  <!-- two different controllers -->
+  <h3>2 different  controller</h3>
+  <div ng-controller="nestedCtrl3">
+  <p>{{testCode}}</p>
+  </div>
+  <div ng-controller="nestedCtrl4">
+    <p>{{testCode}}</p>
+  </div>
+
+  <!-- Using controller-as syntax -->
+  <h3>Controller as</h3>
+  <div ng-controller="nestedCtrl1 as c1">
+    <p>{{c1.testCode}}</p>
+    <div ng-controller="nestedCtrl2 as c2">
+      <p>{{c2.testCode}}</p>
+    </div>
+  </div>
+
+</body>
+</html>
