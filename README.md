@@ -1,27 +1,28 @@
-# Angular 1
+#Angular 1
 
 -----
 ### Why we need Client side frame works
-1. HTML - static
-2. javascript- dynamic
-3. **DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
-4. Messy codes,Harder to maintain , Harder to test, no separation of concerns
+1.HTML - static
+2.javascript- dynamic
+3.**DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
+4.Messy codes,Harder to maintain , Harder to test, no separation of concerns
 
-### Client side MVC frameworks
+### Client side MV* frameworks
 HTML(View) -- DATA(model)---LOGIC (controller)
+watchers and digest loop connect the view and the model
 
 ### Angular JS
 1. HTML Enhanced for webapps
 2. HTMLis great for declaring static documents. It falters when we try to use it for dynamic views in webapplications.
 3. AngularJS helps you extend HTML vocabulary for your application.The resulting environment is extraordinarily experssive,readable and quick to develop.
 4. In JS we
-  1. we find element
-  2. run LOGIC
-  3. update element
+  * we find element
+  * run LOGIC
+  * update element
 5. In AngularJS
-  1. Declare element type
-  2. Define LOGIC
-  3. Use Element type
+  * Declare element type
+  * Define LOGIC
+  * Use Element type
 
 6. Declarative program
 7. Custom elements  :: Directives and components
@@ -36,16 +37,22 @@ HTML(View) -- DATA(model)---LOGIC (controller)
 ### ng-app
 1. way to declare **angular app** is add directive *ng-app* to HTML node or any other node. That node becomes the root for *angular* application
 2. Auto bootstrap an angularjs application
-3. Designate theroot element of the application4.
+3. Designate the root element of the application.
 4. Multiple apllications per page ok( need manual bootstrap)
+
+
+### Data binding
+1. Data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes.
 
 
 ### ng-if
 
 1. selectively remove or recreate a portion of DOM tree based on an expressionlements
-2.*ng-if="true"* element is added.
-3.*ng-if="false"* element is removed.
+2. *ng-if="true"* element is added.
+3. *ng-if="false"* element is removed.
 
+### ng-cloak
+1. when the html loads the angular interpolations will be there *{{ }}*. Angular resolves it and places the value there. So just fora moment the screen may be loaded with {{}}. So ng-cloak helps to hide it until the angular  work is done
 
 ### ng-init
 
@@ -66,37 +73,47 @@ HTML(View) -- DATA(model)---LOGIC (controller)
 
 ### angular.module
 1. Global plcae for creating ,retrieving and registering angular modules
-2. A module is a collection ofdirectives,controllers and other stuff
+2. A module is a collection of directives,controllers and other stuff
 3. *var myModule = angular.module('MyModule',[]);*
 4. *angular* is a global variable availble with the angularjs
 5. name we give while creating module *'MyModule'* should be same in *ng-app='MyModule'*
-6. **Registering a controller**
-  1.Module is a collection of things like controllers
-  2.A controller has to be registered with a module
-  3.
-    ~~~~function MainFn(){}
+
+### Controller
+1. Controllers are the behavior behind the DOM elements.
+2. AngularJS lets you express the behavior in a clean readable form without the usual boilerplate of updating the DOM, registering callbacks or watching model changes.
+3.  AngularJS models are plain old JavaScript objects. This makes your code easy to test, maintain, reuse, and again free from boilerplate.
+4..  **Registering a controller**
+  * Module is a collection of things like controllers
+  * A controller has to be registered with a module
+  *
+    ``` function MainFn(){}
     var myModule = angular.module('MyModule',[]);  
     myModule.controller=("MainCtrl",MainFn);
-    ~~~~
-    4. controller first argument is *controller name* and the second argument is the *function name*
+    ```
+  * controller first argument is *controller name* and the second argument is the *function name*
 
-###Dependency injection and scope
+### Dependency injection and scope
 
-1.Dependency injection is a way in which you can have the things that you need rather than you manually looking it up.
-2.in the method argument use *$scope* . Angular inject the *$scope* to the function
+1. Dependency injection is a way in which you can have the things that you need rather than you manually looking it up.
+2. in the method argument use *$scope* . Angular inject the *$scope* to the function
 3. We can use the *$scope* object to fetch values and add values
+4. **Dependency Injection** : *Giving a function an object* rather than creating an object inside a function pass it to the function.
+5. Js arrays can include functions as elements
+
+### Interpolation
+1. Creating a string by combining strings and placeholders. ie 'my name is :'+ name
 
 
-###ng-click
+### ng-click
 1.
 ~~~~ <button ng-click="update()"></button>
 ~~~~
 
-2.register the function inside the controller .
+2. register the function inside the controller .
 ~~~~ $scope.update = function(){};
 ~~~~
 
-###ng-model Two way binding
+### ng-model Two way binding
 
 1.
 ~~~~ <input type="text" ng-model="userName"></input>
@@ -112,21 +129,21 @@ when scope gets updated the view gets updated automatically.
 3. For each controller there is a private scope
 4. controller first search for the value in the local scope. If not present it will look up in the parent scope
 
-###Using controller as syntax
+### Using controller as syntax
 1.Using *this* instead of *$scope* works only with *controller-as* syntax.Without *controller-as* you will need to inject *$scope*
 2.Syntax is *ng-controller="ctrl1 as c1"* and in the value part *c1.testCode*
 
-###ng-show and ng-hide
-1.if *ng-show* is true shows the part. if *ng-hide* true hides the part. (Not removed from DOM)
-2.If use *ng-if* when its false, the element is removed from the dom
-3.If we use *ng-show* and when its false, the element is still in the DOM. But it uses a *class="ng-hide"* which is a css class with *display:none* value
+### ng-show and ng-hide
+1. if *ng-show* is true shows the part. if *ng-hide* true hides the part. (Not removed from DOM)
+2. If use *ng-if* when its false, the element is removed from the dom
+3. If we use *ng-show* and when its false, the element is still in the DOM. But it uses a *class="ng-hide"* which is a css class with *display:none* value
 
-###ng-repeat
-1.Create a list in controller. for each element in the list the element in the html used with ng-repeat is repeated. If the elements are objects like *json* *ng-repeat* iterates through it and displays based on the html.
-2.Adds new elements to the DOM based on the list
-3.Each element added to DOM *angular* creates a new scope.  it is performed as *class="ng-scope"*.
-4.Unlike a classic for-loop an *ng-repeat* creates multiple copies of HTML elements that all need to exist concurrently at the same time
-5.The scope created for *ng-repeat* has some other variables like
+### ng-repeat
+1. Create a list in controller. for each element in the list the element in the html used with ng-repeat is repeated. If the elements are objects like *json* *ng-repeat* iterates through it and displays based on the html.
+2. Adds new elements to the DOM based on the list
+3. Each element added to DOM *angular* creates a new scope.  it is performed as *class="ng-scope"*.
+4. Unlike a classic for-loop an *ng-repeat* creates multiple copies of HTML elements that all need to exist concurrently at the same time
+5. The scope created for *ng-repeat* has some other variables like
   a.*$index*
   b.*$first*
   c.*$middle*
@@ -134,9 +151,238 @@ when scope gets updated the view gets updated automatically.
   e.*$even*
   f.*$odd*
 
-  ###Resusasble Modules
+### Resusasble Modules
   1. *var myHelloModule = angular.module("myHelloModule",[]);*  --> Register a module like this with functionalities
   2. Import the js file
   3. Add this module to the app.js app module as below
       *var app = angular.module("modulesApp",["myHelloModule"]);*
       [] in the module declaration can be used to import list of Resusasble modules.
+
+
+### Form validation
+1. Client-side form validation is an important part of a great user experience. AngularJS lets you declare the validation rules of the form without having to write JavaScript code.
+2. Write less code
+
+### Server communication
+1. AngularJS provides built-in services on top of XHR as well as various other backends using third party libraries. Promises further simplify your code by handling asynchronous return of data
+
+### Create components
+
+1. **Directives** : Directives are a unique and powerful feature available in AngularJS. Directives let you invent new HTML syntax, specific to your application
+  * An instruction to angularjs to manipulate a piece of DOM.
+  * This could be *ADD a Class*, *Hide this*, *Create This* etc
+2. **Reusable components** : We use directives to create reusable components. A component allows you to hide complex DOM structure, CSS, and behavior. This lets you focus either on what the application does or how the application looks separately
+3. **Localization** : An important part of serious apps is localization. AngularJS's locale aware filters and stemming directives give you building blocks to make your application available in all locales
+
+### Scope services
+1. Scope is an object that refers to the application model
+2. It is an execution context for expressions
+3. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application
+4. Scopes can watch expressions and propagate events.
+5. Scope characteristics :  
+  * Scopes provide APIs ($watch) to observe model mutations
+  * Scopes provide APIs ($apply) to propagate any model changes through the system into the view from outside of the "AngularJS realm" (controllers, services, AngularJS event handlers).
+  * Scopes provide context against which expressions are evaluated. For example *{{username}}* expression is meaningless, unless it is evaluated against a specific *scope* which defines the *username property*
+  * Scopes can be nested to limit access to the properties of application components while providing access to shared model properties.
+
+6. is not actually singleton. but $log,$routeParams etc are singletons
+
+### other services :
+1. $log
+2. $filter
+3. ``` $scope.name = "jaslina";
+$scope.formattedname = $filter('uppercase')($scope.name);
+$log.info($scope.name);
+$log.info($scope.formattedname);
+
+```
+4. We can use ngMessages,ngResource etc modules
+3. $timeout
+
+
+### Single page applications
+
+1. angular-route.js
+2. Angular provides $location to grab what is in hash .. *https://mail.google.com/mail/u/0/#inbox*  ie after hash sign here it is inbox
+3. use **ngroute** routing and deeplinking services and directives for angular apps
+
+
+## custom directives
+
+#### Normalize
+1. To make consistent to a standard.
+2. Specifically we are dealing with *text normalization* or making strings of text consistent to a standard.
+3. use camel case in  js and hyphen separation in htmls. ie *first-name* in html becomes *firstName* in js..
+
+#### Custom directives
+
+1. `myApp.directive(searchResult,function(){return template:'<p>....</p>'}))`
+This is the way to declare
+
+2. ```routeApp.directive("searchResult", function() {
+   return {
+     restrict: 'AECM',
+     templateUrl:'directives/searchresults.html',
+     replace:true
+
+   }
+});
+
+```
+Keeping the template in a separate file.
+
+3. ```<search-result></search-result>
+<div search-result></div>
+<div class="search-result"></div>
+
+```
+It is used like this in the html.
+
+4. The directive can access the scope that it is associated with. So it may cause some issues. So we use the scope in the directive function and for interpolation use it as an attribute in the custom tag.
+
+#### @,=,&
+5. ```routeApp.directive("searchResult", function() {
+   return {
+     restrict: 'AECM',
+     templateUrl:'directives/searchresults.html',
+     replace:true,
+     scope:{
+       personName :"@",
+       personAddress:"@"
+     }
+   }
+});
+
+```
+
+6. ```
+
+<a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">
+    {{personName}}
+  </h4>
+  <p class="list-group-item-text">
+    {{personAddress}}
+  </p>
+</a>
+
+```
+searchresults.html
+
+7. ```  <search-result person-name="{{person.name}}" person-address="{{person.address}}"></search-result>
+
+```
+8. If we are using different variable name in *isolated scope*  then we have to give *"@personName"* like @the name in the html.
+
+`scope:{
+  personNameVar:"@personName"
+  }`
+
+9. **"="** for toway binding. ie saving object.
+
+```scope:{
+  personObject : "="
+}
+
+```
+
+10. In searchresults.html use like
+```<a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">
+    {{personObject.name}}
+  </h4>
+  <p class="list-group-item-text">
+    {{personObject.address}}
+  </p>
+</a>
+
+
+```
+
+11. in the main.html
+```<search-result person-Object="person"></search-result>
+```
+
+12. **"&"**
+To match functions in the scope.
+in the main.html
+
+``` <search-result person-position="{{position}}" person-object="person" formatted-address-function="formattedAddress(aperson)"></search-result>
+
+
+```
+
+In app.js
+``routeApp.controller('maincontroller',['$scope','$log',function($scope,$log){
+  $scope.name = "main";
+  $scope.position = "Manager",
+  $scope.person = {
+    name:"Doe, John",
+    address:"555 Main St.",
+    city:"New York",
+    state:"NY" ,
+    zip:"11111",
+
+  }
+  $scope.formattedAddress = function(person){
+    return person.address +" , "+person.city+" , "+ person.state+" , "+person.zip+" ."
+  };
+
+  }]);
+
+  routeApp.directive("searchResult", function() {
+    return {
+      restrict: 'AECM',
+      templateUrl:'directives/searchresults.html',
+      replace:true,
+      scope:{
+        personPosition:"@",
+        personObject:"=",
+        formattedAddressFunction:"&"
+      }
+    }
+    });
+
+```
+In searchresults.html
+
+```<a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">
+    {{personObject.name}}
+  </h4>
+  <p class="list-group-item-text">
+    {{personPosition}}
+  </p>
+  <p class="list-group-item-text">
+    {{formattedAddressFunction({aperson : personObject})}}
+  </p>
+</a>
+
+
+```
+
+
+### Compile,link
+
+1. Use the compile function to change the original DOM (template element) before AngularJS creates an instance of it and before a scope is created. While there can be multiple element instances, there is only one template element. The ng-repeat directive is a perfect example of such a scenario
+
+2. **compile:** Compiles an HTML string or DOM into a template and produces a template function, which can then be used to link scope and the template together. The compilation is a process of walking the DOM tree and matching DOM elements to directives
+
+3. **pre-link** :Use the pre-link function to implement logic that runs when AngularJS has already compiled the child elements, but before any of the child element's post-link functions have been called.
+The scope, instance element and instance attributes are passed to the pre-link function as arguments:
+
+
+4. **post-link**:Use the post-link function to execute logic, knowing that all child elements have been compiled and all pre-link and post-link functions of child elements have been executed.
+
+This is the reason the post-link function is considered the safest and default place for your code.
+
+The scope, instance element and instance attributes are passed to the post-link function as arguments:
+
+3. **link** : It is the post link function. We mainly use this rather than compile and pre link and post-link.
+
+
+### Transclusion
+1. include one document inside the other
+2. Place a copy of one document at a particular point inside another.
+3. In app.js directive add *transclude:true,*
+.
