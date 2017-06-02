@@ -1,11 +1,11 @@
-#Angular 1
+### Angular 1
 
 -----
 ### Why we need Client side frame works
-1.HTML - static
-2.javascript- dynamic
-3.**DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
-4.Messy codes,Harder to maintain , Harder to test, no separation of concerns
+1. HTML - static
+2. javascript- dynamic
+3. **DOM** manipulation in *javascript* is done by calling **DOM API** to access the **DOM** nodes that can be programmatically modified
+4. Messy codes,Harder to maintain , Harder to test, no separation of concerns
 
 ### Client side MV* frameworks
 HTML(View) -- DATA(model)---LOGIC (controller)
@@ -16,13 +16,13 @@ watchers and digest loop connect the view and the model
 2. HTMLis great for declaring static documents. It falters when we try to use it for dynamic views in webapplications.
 3. AngularJS helps you extend HTML vocabulary for your application.The resulting environment is extraordinarily experssive,readable and quick to develop.
 4. In JS we
-  * we find element
-  * run LOGIC
-  * update element
+   * we find element
+   * run LOGIC
+   * update element
 5. In AngularJS
-  * Declare element type
-  * Define LOGIC
-  * Use Element type
+   * Declare element type
+   * Define LOGIC
+   * Use Element type
 
 6. Declarative program
 7. Custom elements  :: Directives and components
