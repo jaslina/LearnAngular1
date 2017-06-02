@@ -52,7 +52,7 @@ watchers and digest loop connect the view and the model
 3. *ng-if="false"* element is removed.
 
 ### ng-cloak
-1. when the html loads the angular interpolations will be there *{{ }}*. Angular resolves it and places the value there. So just fora moment the screen may be loaded with {{}}. So ng-cloak helps to hide it until the angular  work is done
+1. when the html loads the angular interpolations will be there *{{ }}*. Angular resolves it and places the value there. So just fora moment the screen may be loaded with {{}}. So *ng-cloak* helps to hide it until the angular  work is done
 
 ### ng-init
 
@@ -82,15 +82,15 @@ watchers and digest loop connect the view and the model
 1. Controllers are the behavior behind the DOM elements.
 2. AngularJS lets you express the behavior in a clean readable form without the usual boilerplate of updating the DOM, registering callbacks or watching model changes.
 3.  AngularJS models are plain old JavaScript objects. This makes your code easy to test, maintain, reuse, and again free from boilerplate.
-4..  **Registering a controller**
-  * Module is a collection of things like controllers
-  * A controller has to be registered with a module
-  *
+4.  **Registering a controller**
+    * Module is a collection of things like controllers
+    * A controller has to be registered with a module
+    *
     ``` function MainFn(){}
     var myModule = angular.module('MyModule',[]);  
     myModule.controller=("MainCtrl",MainFn);
     ```
-  * controller first argument is *controller name* and the second argument is the *function name*
+    * controller first argument is *controller name* and the second argument is the *function name*
 
 ### Dependency injection and scope
 
@@ -106,19 +106,18 @@ watchers and digest loop connect the view and the model
 
 ### ng-click
 1.
-~~~~ <button ng-click="update()"></button>
-~~~~
+` <button ng-click="update()"></button>`
 
 2. register the function inside the controller .
-~~~~ $scope.update = function(){};
-~~~~
+
+` $scope.update = function(){};`
 
 ### ng-model Two way binding
 
 1.
-~~~~ <input type="text" ng-model="userName"></input>
+```<input type="text" ng-model="userName"></input>
 <p>Your name: {{userName}} </p>
-~~~~
+```
 
 the value is bound to each key press.  
 when scope gets updated the view gets updated automatically.
