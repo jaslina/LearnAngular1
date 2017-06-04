@@ -385,3 +385,25 @@ The scope, instance element and instance attributes are passed to the post-link 
 2. Place a copy of one document at a particular point inside another.
 3. In app.js directive add *transclude:true,*
 .
+
+
+### $timeout and $evalAsync
+
+1. if code is queued using $evalAsync from a directive, it should run after the DOM has been manipulated by Angular, but before the browser renders
+2. if code is queued using $evalAsync from a controller, it should run before the DOM has been manipulated by Angular (and before the browser renders) -- rarely do you want this
+3. if code is queued using $timeout, it should run after the DOM has been manipulated by Angular, and after the browser renders (which may cause flicker in some cases)
+
+**evalAsync([expression], [locals]);**
+1.  Executes the expression on the current scope at a later point in time.
+
+2. The $evalAsync makes no guarantees as to when the expression will be executed, only that:
+
+3. it will execute after the function that scheduled the evaluation (preferably before DOM rendering).
+  at least one $digest cycle will be performed after expression execution.
+  Any exceptions from the execution of the expression are forwarded to the $exceptionHandler service.
+
+4. Note: if this function is called outside of a $digest cycle, a new $digest cycle will be scheduled. However, it is encouraged to     always call code that changes the model from within an $apply call. That includes code evaluated via $evalAsync.
+
+**$timeout :** 
+
+1. AngularJS's wrapper for window.setTimeout. The fn function is wrapped into a try/catch block and delegates any exceptions to $exceptionHandler service.
