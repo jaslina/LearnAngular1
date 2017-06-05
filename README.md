@@ -407,3 +407,34 @@ The scope, instance element and instance attributes are passed to the post-link 
 **$timeout :** 
 
 1. AngularJS's wrapper for window.setTimeout. The fn function is wrapped into a try/catch block and delegates any exceptions to $exceptionHandler service.
+
+
+### Differnce $watch and $observe
+
+1. $observe() is a method on the Attributes object, and as such, it can only be used to observe/watch the value change of a DOM attribute. It is only used/called inside directives. Use $observe when you need to observe/watch a DOM attribute that contains interpolation (i.e., {{}}'s). 
+
+2. attr1="Name: {{name}}", then in a directive: attrs.$observe('attr1', ...). 
+ (If you try scope.$watch(attrs.attr1, ...) it won't work because of the {{}}s -- you'll get undefined.) Use $watch for everything else.
+ 
+3. $watch : is more complicated. It can observe/watch an "expression", where the expression can be either a function or a string. If the expression is a string, it is $parse'd (i.e., evaluated as an Angular expression) into a function. (It is this function that is called every digest cycle.) The string expression can not contain {{}}'s. $watch is a method on the Scope object, so it can be used/called wherever you have access to a scope object.
+
+### difference between $parse and $eval?
+
+***$parse*** ; Converts AngularJS expression into a function.
+***$eval*** : Executes the expression on the current scope and returns the result.
+
+1. $eval is a scope method that executes an expression on the current scope, while $parse is a (more globally available) service.
+
+  So you can say $parse(expr)(context, locals);, with any context, but in the case of $eval the context will be the scope.
+  
+2. $eval behind the scenes uses $parse against the current scope.
+3. $eval always evaluates the expression based on the current scope and returns the result Example:  console.log($scope.$eval("a*b")); 
+4. $parse just returns the function and does not work on any scope. Example:
+`var func = $parse("a*b");`
+   now func can be applied against 
+  * any scope
+ ```var result = func($scope);
+console.log(result); // 8```
+  * object
+```var result1 = func({a:3 , b:3});    
+console.log(result1); // 9```
