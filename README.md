@@ -430,11 +430,11 @@ The scope, instance element and instance attributes are passed to the post-link 
 2. $eval behind the scenes uses $parse against the current scope.
 3. $eval always evaluates the expression based on the current scope and returns the result Example:  console.log($scope.$eval("a*b")); 
 4. $parse just returns the function and does not work on any scope. Example:
-`var func = $parse("a*b");`
+```var func = $parse("a*b");```
    now func can be applied against 
   * any scope
- ```var result = func($scope);
-console.log(result); // 8```
+ ```var result = func($scope);```
+console.log(result); // 8
   * object
 ```var result1 = func({a:3 , b:3});    
 console.log(result1); // 9```
