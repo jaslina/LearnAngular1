@@ -438,3 +438,27 @@ console.log(result); // 8```
   * object
 ```var result1 = func({a:3 , b:3});    
 console.log(result1); // 9```
+
+### How to share information between controllers in AngularJS?
+
+Services
+
+###  $emit() $broadcast() $on()
+
+**$emit**
+
+It dispatches an event name upwards through the scope hierarchy and notify to the registered $rootScope.Scope listeners. The event life cycle starts at the scope on which $emit was called. The event traverses upwards toward the root scope and calls all registered listeners along the way. The event will stop propagating if one of the listeners cancels it.
+
+**$broadcast**
+
+It dispatches an event name downwards to all child scopes (and their children) and notify to the registered $rootScope.Scope listeners. The event life cycle starts at the scope on which $broadcast was called. All listeners for the event on this scope get notified. Afterwards, the event traverses downwards toward the child scopes and calls all registered listeners along the way. The event cannot be canceled.
+
+**$on**
+
+It listen on events of a given type. It can catch the event dispatched by $broadcast and $emit.
+
+### Model View Viewmodel
+
+view - angular js compiled html
+viewmodel - controllers
+model - angularjs model
