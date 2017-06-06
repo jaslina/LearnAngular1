@@ -447,7 +447,7 @@ Services
 
 **$emit**
 
-It dispatches an event name upwards through the scope hierarchy and notify to the registered $rootScope.Scope listeners. The event life cycle starts at the scope on which $emit was called. The event traverses upwards toward the root scope and calls all registered listeners along the way. The event will stop propagating if one of the listeners cancels it.
+It dispatches an event name upwards through the scope hierarchy and notify to the registered $rootScope.Scope listeners. The event life cycle starts at the scope on which $em1. Controls (input, select, textarea) are ways for a user to enter data. A Form is a collection of controls for the purpose of grouping related controls together.it was called. The event traverses upwards toward the root scope and calls all registered listeners along the way. The event will stop propagating if one of the listeners cancels it.
 
 **$broadcast**
 
@@ -462,3 +462,11 @@ It listen on events of a given type. It can catch the event dispatched by $broad
 view - angular js compiled html
 viewmodel - controllers
 model - angularjs model
+
+
+### Angular forms 
+1. Controls (input, select, textarea) are ways for a user to enter data. A Form is a collection of controls for the purpose of grouping related controls together.
+2. Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error. 
+3. novalidate is used to disable browser's native form validation.
+
+ The value of ngModel won't be set unless it passes validation for the input field. For example: inputs of type email must have a value in the form of user@domain
